@@ -71,21 +71,16 @@ class Car extends Vehicle
 
     public function start(): string // Démarrer
     {
-        try {
+       
             if ($this->hasParkBrake) {
                 throw new Exception("Attention le frein à main est mis !");
-            }
-        } catch (Exception $e) {
-            $this->hasParkBrake = "false";
-            echo "<p>".$e->getMessage()."</p>";
-            echo "<p>"."ok ! j'enleve le frein"."</p>";
-        } finally {
-            echo "<p>Ma voiture roule comme un donut !</p>";      
+            }      
+            
             if ($this->currentSpeed === 0) {
                 $this->currentSpeed = 1;
                 return "On démarre !";
             }                   
-        }
+        
         return "C'est déjà fait ! Speed is " . $this->currentSpeed;
     }
 

@@ -20,10 +20,17 @@
     <h1>POO - Basics | Part 3 : Abstraction</h1>
     <?php
         $myCar=new Car("red",4,"fuel");
-        $myCar->setParkBrake(true); 
-       
-        echo $myCar->start();        
-
+        $myCar->setParkBrake(true);       
+              
+        try {
+            echo $myCar->start();  
+        } catch (Exception $e) {
+            $this->hasParkBrake = "false";
+            echo "<p>".$e->getMessage()."</p>";
+            echo "<p>"."ok ! j'enleve le frein"."</p>";
+        } finally {
+            echo "<p>Ma voiture roule comme un donut !</p>"; 
+        }
     ?>
 </body>
 </html>
